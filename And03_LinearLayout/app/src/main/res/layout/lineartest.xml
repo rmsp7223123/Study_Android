@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#7CAEDF"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:background="#123"
+            android:textSize="30dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:text="버튼 1"
+            android:layout_weight="5"
+            />
+        <Button
+            android:background="#123"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="버튼"
+            android:layout_weight="2"
+            android:layout_marginRight="10dp"
+            android:textSize="12dp"
+            />
+        <Button
+            android:background="#123"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="버튼"
+            android:layout_weight="3"
+            android:layout_marginRight="10dp"
+            android:textSize="12dp"
+            />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#C591CD"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:background="#123"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="버튼"
+            android:layout_weight="3"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            />
+        <Button
+            android:background="#123"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="버튼"
+            android:layout_weight="7"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E1AC9C"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher_foreground"/>
+    </RelativeLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+           <Button
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#123"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="버튼"/>
+            <Button
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="#123"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="버튼"/>
+            <Button
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="#123"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="버튼"/>
+            <Button
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="#123"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="버튼"/>
+
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="#123"
+                android:text="버튼" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
