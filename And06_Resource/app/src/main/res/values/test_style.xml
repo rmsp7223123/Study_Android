@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="view_line_margin">10dp</dimen>
+    <dimen name="view_line_height">7dp</dimen>
+    <dimen name="view_line_background">#787676</dimen>
+</resources>
