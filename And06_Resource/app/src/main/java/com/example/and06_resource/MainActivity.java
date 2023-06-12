@@ -10,7 +10,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test);
+        setContentView(R.layout.test2);
 
         Log.d("Values/String 값 : " , + R.string.mbj_version + ""); // id(메모리 번지수)
         Log.d("Values/String 값 : " , getString(R.string.mbj_version)); // 실제 값 출력
