@@ -6,8 +6,12 @@
 
     <dimen name="view_line_height">5dp</dimen>
     <dimen name="view_line_margin">10dp</dimen>
-    <color name="background_view">#A5A4A4</color>
+    <color name="background_view">#D3D3D3</color>
     <dimen name="head_text_size">22dp</dimen>
     <color name="text_color">#000000</color>
+    <dimen name="sub_text">16dp</dimen>
+    <dimen name="menu_text">20dp</dimen>
+    <dimen name="menu_text_margin">15dp</dimen>
+    <dimen name="menu_head_margin">10dp</dimen>
 
 </resources>
