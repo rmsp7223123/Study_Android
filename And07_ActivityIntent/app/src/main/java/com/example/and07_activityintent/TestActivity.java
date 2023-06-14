@@ -18,7 +18,7 @@ final String TAG = "가가";
         int intValue1 = intent.getIntExtra("intkey1",-1);
         Log.d(TAG, "onClick: " + strValue1);
         Log.d(TAG, "onCreate: " + intValue1);
-        Log.d(TAG, "onCreate: " + dto);
+        Log.d(TAG, "onCreate: " + dto.getStr1()+dto.getInt1());
 
     }
 }

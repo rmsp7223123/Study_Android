@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         msg_btn.setOnClickListener(this::onClick);
         msg_btn2.setOnClickListener(this::onClick);
         int_btn.setOnClickListener(this::onClick);
+        send_btn.setOnClickListener(this);
     }
 
     @Override
@@ -99,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (v.getId() == R.id.send_btn) {
             intent = new Intent(MainActivity.this , TestActivity.class);
             DTO dto = new DTO(edt_msg2.getText().toString(), Integer.parseInt(edt_int.getText().toString()));
+            intent.putExtra("send", dto);
             startActivity(intent);
         }
     }
