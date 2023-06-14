@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         } else if (v.getId() == R.id.send_btn) {
             intent = new Intent(MainActivity.this , TestActivity.class);
-
+            DTO dto = new DTO(edt_msg2.getText().toString(), Integer.parseInt(edt_int.getText().toString()));
             startActivity(intent);
         }
     }

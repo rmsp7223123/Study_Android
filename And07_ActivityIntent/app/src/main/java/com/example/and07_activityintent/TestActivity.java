@@ -12,11 +12,13 @@ final String TAG = "가가";
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-
         Intent  intent = getIntent();
         String strValue1 = intent.getStringExtra("strkey1");
+        DTO dto = (DTO) intent.getSerializableExtra("send");
         int intValue1 = intent.getIntExtra("intkey1",-1);
         Log.d(TAG, "onClick: " + strValue1);
         Log.d(TAG, "onCreate: " + intValue1);
+        Log.d(TAG, "onCreate: " + dto);
+
     }
 }
