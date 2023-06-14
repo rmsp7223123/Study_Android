@@ -13,6 +13,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+
+import kotlin.io.SerializableKt;
+
 public class LoginActivity extends AppCompatActivity {
 
     EditText id, pw;
@@ -26,13 +31,26 @@ public class LoginActivity extends AppCompatActivity {
         pw = findViewById(R.id.pw);
         btn_login = findViewById(R.id.btn_login);
 
-        Log.d("글자", id.getText()+"");
+        Log.d("글자", id.getText() + "");
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(id.getText().toString().equals("admin") && pw.getText().toString().equals("admin1234")) {
+                if (id.getText().toString().equals("admin") && pw.getText().toString().equals("admin1234")) {
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.putExtra("strkey", id.getText().toString() + "intent");
+                    intent.putExtra("intkey", 10);
+                    LoginDTO dto = new LoginDTO(id.getText().toString() + "1", pw.getText().toString() + "2");
+                    intent.putExtra("dtokey", dto);
+                    ArrayList<LoginDTO> arrdto = new ArrayList<>();
+                    arrdto.add(new LoginDTO("a1", "b1"));
+                    arrdto.add(new LoginDTO("a2", "b2"));
+                    arrdto.add(new LoginDTO("a3", "b3"));
+                    arrdto.add(new LoginDTO("a4", "b4"));
+                    arrdto.add(new LoginDTO("a5", "b5"));
+                    intent.putExtra("list",arrdto);
+                    startActivity(intent);
                     Toast.makeText(LoginActivity.this, "성공", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(LoginActivity.this, "실패", Toast.LENGTH_SHORT).show();
@@ -44,14 +62,9 @@ public class LoginActivity extends AppCompatActivity {
 //                ex) Act, Fragment => 화면에 떠있는 객체이기 때문에 그래픽 작업을 할 수 있음.
 //                                     하지만 화면에 떠있는지의 상태를 알려줄 수 있는게 필요함 => Context
 //                => 일반클래스에서도 그래픽 처리가 가능하게 만드려면 Activity가 Context라는것을 파라미터로 보내줬을 때 가능함
-
-
-
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-
             }
         });
 
     }
+
 }
