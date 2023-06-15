@@ -185,6 +185,7 @@
             android:textSize="16dp"/>
 
         <Button
+            android:id="@+id/arr_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="전화 걸기"/>

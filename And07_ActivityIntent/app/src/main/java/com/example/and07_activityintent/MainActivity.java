@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     final String TAG = "수명주기";
-    Button call_btn, search_btn, msg_btn, msg_btn2, int_btn, send_btn;
+    Button call_btn, search_btn, msg_btn, msg_btn2, int_btn, send_btn, arr_btn;
     EditText edt_call, edt_search, edt_msg, edt_msg2, edt_int;
 //    현재는 oncreate내부에서만 대부분의 코드처리를 해도 무방
 //    추후에 여러 화면 이나 Spring 연동 시 새로고침 등의 처리가 필요할 때는 수명 주기가 있다는 것을 생각 하고, 적절한 수명 주기를 이용 해야 함
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         msg_btn2 = findViewById(R.id.msg_btn2);
         int_btn = findViewById(R.id.int_btn);
         send_btn = findViewById(R.id.send_btn);
+        arr_btn = findViewById(R.id.arr_btn);
         edt_call = findViewById(R.id.edt_call);
         edt_search = findViewById(R.id.edt_search);
         edt_msg = findViewById(R.id.edt_msg);
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         msg_btn2.setOnClickListener(this::onClick);
         int_btn.setOnClickListener(this::onClick);
         send_btn.setOnClickListener(this);
+        arr_btn.setOnClickListener(this);
     }
 
     @Override
@@ -88,19 +90,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("sms_body", edt_msg.getText().toString());
             startActivity(intent);
         } else if (v.getId() == R.id.msg_btn2) {
-            intent = new Intent(MainActivity.this , TestActivity.class);
-            intent.putExtra("strkey1",edt_msg2.getText().toString());
+            intent = new Intent(MainActivity.this, TestActivity.class);
+            intent.putExtra("strkey1", edt_msg2.getText().toString());
             startActivity(intent);
         } else if (v.getId() == R.id.int_btn) {
-            intent = new Intent(MainActivity.this , TestActivity.class);
+            intent = new Intent(MainActivity.this, TestActivity.class);
             intent.putExtra("intkey1", Integer.parseInt(edt_int.getText().toString()));
 //            int intValue1 = intent.getIntExtra("intkey1",-1);
 //            Log.d(TAG, "onClick: " + intValue1);
             startActivity(intent);
         } else if (v.getId() == R.id.send_btn) {
-            intent = new Intent(MainActivity.this , TestActivity.class);
+            intent = new Intent(MainActivity.this, TestActivity.class);
             DTO dto = new DTO(edt_msg2.getText().toString(), Integer.parseInt(edt_int.getText().toString()));
             intent.putExtra("send", dto);
+            startActivity(intent);
+        } else if (v.getId() == R.id.arr_btn) {
+            intent = new Intent(MainActivity.this, TestActivity.class);
+            ArrayList<DTO> arrdto1 = new ArrayList<>();
+            arrdto1.add(new DTO(edt_msg2.getText().toString(), Integer.parseInt(edt_int.getText().toString())));
+            intent.putExtra("arrdto1", arrdto1);
             startActivity(intent);
         }
     }
