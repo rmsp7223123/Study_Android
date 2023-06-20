@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="108dp"
+                android:layout_height="108dp"
+                android:src="@drawable/ic_launcher_foreground" />
+
+            <TextView
+                android:id="@+id/tv_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="콜라 800원" />
+
+            <TextView
+                android:id="@+id/tv_cnt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10개 남음" />
+
+            <Button
+                android:id="@+id/btn_order1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="주문" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="108dp"
+                android:layout_height="108dp"
+                android:src="@drawable/pepe" />
+
+            <TextView
+                android:id="@+id/tv_name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="사이다 1000원" />
+
+            <TextView
+                android:id="@+id/tv_cnt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="11개 남음" />
+
+            <Button
+                android:id="@+id/btn_order2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="주문" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="108dp"
+                android:layout_height="108dp"
+                android:src="@drawable/pepe" />
+
+            <TextView
+                android:id="@+id/tv_name3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="환타 1200원" />
+
+            <TextView
+                android:id="@+id/tv_cnt3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12개 남음" />
+
+            <Button
+                android:id="@+id/btn_order3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="주문" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="108dp"
+                android:layout_height="108dp"
+                android:src="@drawable/pepe" />
+
+            <TextView
+                android:id="@+id/tv_name4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="초록매실 1500원" />
+
+            <TextView
+                android:id="@+id/tv_cnt4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="13개 남음" />
+
+            <Button
+                android:id="@+id/btn_order4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="주문" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:textSize="20dp"
+        android:id="@+id/tv_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginVertical="10dp"
+        android:text="999999999원" />
+</LinearLayout>
