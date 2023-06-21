@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.and09_fragmentadapter.R;
 
@@ -48,7 +49,11 @@ public class AdapterListView extends BaseAdapter {
 //        LayoutInflater를 이용해서 칸마다의 아이템을 붙이는 처리를 해줘야 함
         convertView = inflater.inflate(R.layout.item_listview, parent, false);
         ImageView img_profile = convertView.findViewById(R.id.imgv);
+        TextView tv1 = convertView.findViewById(R.id.tv1);
+        TextView tv2 = convertView.findViewById(R.id.tv2);
         img_profile.setImageResource(list.get(position).getImgRes());
+        tv1.setText(list.get(position).getName());
+        tv2.setText(list.get(position).getMsg());
         return convertView;
     }
 }

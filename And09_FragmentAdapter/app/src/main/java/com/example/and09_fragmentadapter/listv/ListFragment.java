@@ -22,14 +22,13 @@ public class ListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_list, container, false);
 
-
-
         list.add(new ListDTO(R.drawable.pepe1, "이름1" , "메시지1"));
         list.add(new ListDTO(R.drawable.pepe2, "이름2" , "메시지2"));
         list.add(new ListDTO(R.drawable.pepe3, "이름3" , "메시지3"));
         list.add(new ListDTO(R.drawable.pepe4, "이름4" , "메시지4"));
         list.add(new ListDTO(R.drawable.pepe5, "이름5" , "메시지5"));
         list.add(new ListDTO(R.drawable.pepe6, "이름6" , "메시지6"));
+
 
         listv = v.findViewById(R.id.listv);
         AdapterListView adapter = new AdapterListView(inflater , list   );
