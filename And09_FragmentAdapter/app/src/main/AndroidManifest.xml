@@ -10,16 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BoardTest"
+        android:theme="@style/Theme.And09_FragmentAdapter"
         tools:targetApi="31">
         <activity
-            android:name=".BoardWrite"
-            android:exported="false" />
-        <activity
-            android:name=".Board"
-            android:exported="false" />
-        <activity
-            android:name=".NewAccount"
+            android:name=".AdapterActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
