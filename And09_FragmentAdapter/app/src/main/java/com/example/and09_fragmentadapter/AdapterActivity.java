@@ -5,14 +5,19 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.example.and09_fragmentadapter.grid.GridFragment;
 import com.example.and09_fragmentadapter.listv.ListFragment;
+import com.example.and09_fragmentadapter.melon.MelonFragment;
+import com.example.and09_fragmentadapter.recycler.NormalClass;
+import com.example.and09_fragmentadapter.recycler.RecyclerFragment;
 
 public class AdapterActivity extends AppCompatActivity {
 
 //    ListView listv;
 
-    Button btn_list;
+    Button btn_list , btn_grid, btn_recycler, btn_practice;
     FragmentManager manager;
 
     @Override
@@ -20,10 +25,24 @@ public class AdapterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adapter);
         btn_list = findViewById(R.id.btn_list);
+        btn_grid = findViewById(R.id.btn_grid);
+        btn_recycler = findViewById(R.id.btn_recycler);
+        btn_practice = findViewById(R.id.btn_practice);
         manager = getSupportFragmentManager();
         btn_list.setOnClickListener(v -> {
             manager.beginTransaction().replace(R.id.container_frame, new ListFragment()).commit();
         });
+        btn_grid.setOnClickListener(v -> {
+            manager.beginTransaction().replace(R.id.container_frame, new GridFragment()).commit();
+        });
+        btn_recycler.setOnClickListener(v -> {
+            manager.beginTransaction().replace(R.id.container_frame, new RecyclerFragment()).commit();
+        });
+        btn_practice.setOnClickListener(v -> {
+            manager.beginTransaction().replace(R.id.container_frame, new MelonFragment()).commit();
+        });
+
+        new NormalClass().testToast("쓰고싶은거 ㅇㅁㄹㄴㅇㄹ", this);
 
 //
 ////        용도나 형태에 따라 어댑터의 종류가 다름 Array형태로 String을 넣는 방식은 사용빈도가 가장 낮은 오래된 방식(ArrayAdapter)

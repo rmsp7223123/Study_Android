@@ -28,6 +28,7 @@ public class ListFragment extends Fragment {
         list.add(new ListDTO(R.drawable.pepe4, "이름4" , "메시지4"));
         list.add(new ListDTO(R.drawable.pepe5, "이름5" , "메시지5"));
         list.add(new ListDTO(R.drawable.pepe6, "이름6" , "메시지6"));
+        list.add(new ListDTO(R.drawable.pepe7, "이름7" , "메시지7"));
 
 
         listv = v.findViewById(R.id.listv);
