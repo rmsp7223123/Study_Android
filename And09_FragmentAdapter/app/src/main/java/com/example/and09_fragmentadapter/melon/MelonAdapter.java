@@ -39,7 +39,6 @@ public class MelonAdapter extends RecyclerView.Adapter<MelonAdapter.ViewHolder2>
         holder.tv_rank.setText(list.get(position).getRank() + "");
         holder.tv_singer.setText(list.get(position).getSinger());
         holder.tv_song.setText(list.get(position).getSong());
-
     }
 
     @Override

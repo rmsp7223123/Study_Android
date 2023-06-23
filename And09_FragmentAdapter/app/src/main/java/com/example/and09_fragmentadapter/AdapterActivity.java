@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.and09_fragmentadapter.grid.GridFragment;
@@ -18,6 +19,8 @@ public class AdapterActivity extends AppCompatActivity {
 //    ListView listv;
 
     Button btn_list , btn_grid, btn_recycler, btn_practice;
+
+    LinearLayout linear1;
     FragmentManager manager;
 
     @Override
@@ -28,6 +31,7 @@ public class AdapterActivity extends AppCompatActivity {
         btn_grid = findViewById(R.id.btn_grid);
         btn_recycler = findViewById(R.id.btn_recycler);
         btn_practice = findViewById(R.id.btn_practice);
+        linear1 = findViewById(R.id.linear1);
         manager = getSupportFragmentManager();
         btn_list.setOnClickListener(v -> {
             manager.beginTransaction().replace(R.id.container_frame, new ListFragment()).commit();
@@ -40,6 +44,7 @@ public class AdapterActivity extends AppCompatActivity {
         });
         btn_practice.setOnClickListener(v -> {
             manager.beginTransaction().replace(R.id.container_frame, new MelonFragment()).commit();
+            linear1.removeAllViews();
         });
 
         new NormalClass().testToast("쓰고싶은거 ㅇㅁㄹㄴㅇㄹ", this);
