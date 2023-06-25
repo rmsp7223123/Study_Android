@@ -23,5 +23,9 @@ public class MainActivity extends AppCompatActivity {
             intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
         });
+        binding.btnSetting.setOnClickListener(view -> {
+            intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent);
+        });
     }
 }
