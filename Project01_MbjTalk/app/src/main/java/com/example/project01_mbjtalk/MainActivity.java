@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.project01_mbjtalk.chat.ChatFragment;
 import com.example.project01_mbjtalk.databinding.ActivityMainBinding;
 import com.example.project01_mbjtalk.friend.FriendFragment;
+import com.example.project01_mbjtalk.opentalk.OpenTalkMainFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 manager.beginTransaction().replace(R.id.container_frame, new ChatFragment()).commit();
             } else if (item.getItemId() == R.id.tab3) {
                 actionBar.setTitle("오픈채팅");
+                fragment = new OpenTalkMainFragment();
             } else if (item.getItemId() == R.id.tab4) {
                 actionBar.setTitle("쇼핑");
             } else if (item.getItemId() == R.id.tab5) {
