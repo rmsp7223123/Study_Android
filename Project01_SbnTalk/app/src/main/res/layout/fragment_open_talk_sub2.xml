@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".opentalk.OpenTalkSub2Fragment">
+    tools:context="com.example.project01_sbntalk.food.OpenTalkSub2Fragment">
 
 
     <LinearLayout

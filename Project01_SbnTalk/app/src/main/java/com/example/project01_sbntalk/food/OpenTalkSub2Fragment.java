@@ -1,4 +1,4 @@
-package com.example.project01_mbjtalk.opentalk;
+package com.example.project01_sbntalk.food;
 
 import android.os.Bundle;
 
@@ -9,8 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.project01_mbjtalk.R;
-import com.example.project01_mbjtalk.databinding.FragmentOpenTalkSub2Binding;
+import com.example.project01_sbntalk.R;
+import com.example.project01_sbntalk.databinding.FragmentOpenTalkSub2Binding;
 
 import java.util.ArrayList;
 
