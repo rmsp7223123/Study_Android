@@ -30,7 +30,6 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
     }
 
 
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -57,7 +56,7 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setTitle(list.get(i).getName());//제목 부분
             builder.setItems(dialogItems, ((dialog, idx) -> {
-                if(dialogItems[idx].equals("차단")){
+                if (dialogItems[idx].equals("차단")) {
                     list.remove(i);
                     notifyDataSetChanged();//adapter에 있는 메소드 notifyDataChagned();<-내부에 있는 리스트가 바뀌면 바뀌었다는 것을 어댑터에 전달하고 어댑터는 내용을 다시 그린다.
                     dialog.dismiss();
@@ -78,8 +77,9 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
     }
 
     // 1. 위젯들을 묶어서 저장해놓을 객체 ViewHolder
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         ItemFriendRecvBinding binding;
+
         public ViewHolder(@NonNull ItemFriendRecvBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
