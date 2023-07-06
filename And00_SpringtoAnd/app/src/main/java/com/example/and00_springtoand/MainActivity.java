@@ -2,6 +2,7 @@ package com.example.and00_springtoand;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -9,6 +10,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,52 +22,32 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        RetrofitClient rc = new RetrofitClient();
-        RetrofitInterface api = rc.getRetrofit().create(RetrofitInterface.class);
+//        RetrofitClient rc = new RetrofitClient();
+//        RetrofitInterface api = rc.getRetrofit().create(RetrofitInterface.class);
 
+        RetrofitInterface api = new RetrofitClient().getRetrofit().create(RetrofitInterface.class);
+        HashMap<String, Object> paramMap = new HashMap<>();
+        paramMap.put("param","값ㄴㅁㅇㄹ");
+        paramMap.put("param1","값ㄴㅁㅇㄹ");
+        paramMap.put("param2","값ㄴㅁㅇㄹ");
 
-//        api.getCuList().enqueue(new Callback<String>() {
-//            @Override
-//            public void onResponse(Call<String> call, Response<String> response) {
-//                Log.d("레트로핏", "onResponse: ");
-//            }
-//
-//            @Override
-//            public void onFailure(Call<String> call, Throwable t) {
-//                Log.d("레트로핏", "onResponse: ");
-//            }
-//        });
+        ProgressDialog dialog = new ProgressDialog(this);
+        dialog.setTitle("레트로핏");
+        dialog.setMessage("확인용123123");
+        dialog.setProgress(ProgressDialog.STYLE_SPINNER);
+        dialog.setCancelable(false);
+        dialog.show();
 
-        api.getCu().enqueue(new Callback<String>() {
+        api.clientPostMethod("list.cu", paramMap).enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
-                Log.d("레트로핏", "onResponse: ");
-                //String to Object(CustomerVO) 'Gson'
-                Gson gson = new Gson();
-                CustomerVO vo = gson.fromJson(response.body(), CustomerVO.class);
-                Log.d("레트로핏", "onResponse: " + vo);
-                Log.d("레트로핏", "onResponse: " + vo.getEmail());
+                Log.d("레트로핏", "응답이 왔음" + response.body());
+                dialog.dismiss();
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                Log.d("레트로핏", "onResponse: ");
-            }
-        });
-
-        api.getCuList().enqueue(new Callback<String>() {
-            @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                String result = response.body();
-                ArrayList<CustomerVO> list = new Gson().fromJson(
-                        result, new TypeToken<ArrayList<CustomerVO>>(){}.getType()
-                );
-                Log.d("레트로핏", "onResponse: " + list.size());
-            }
-
-            @Override
-            public void onFailure(Call<String> call, Throwable t) {
-
+                Log.d("레트로핏", "응답 없음, 실패");
             }
         });
     }
