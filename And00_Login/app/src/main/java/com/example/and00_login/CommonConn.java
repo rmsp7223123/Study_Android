@@ -24,6 +24,7 @@ public class CommonConn {
         this.context = context;
         this.mapping = mapping;
         this.paramMap = new HashMap<>();
+        Log.d("확인용", "onCreate: " + callBack);
     }
 
     public void addParamMap(String key, Object value) {
@@ -51,7 +52,9 @@ public class CommonConn {
     public void onExcute(MbjCallBack callBack) {
         onPreExcute();
         // 2.
+        Log.d("확인용", "onCreate: " + this.callBack);
         this.callBack= callBack;
+        Log.d("확인용", "onCreate: " +this.callBack+" 받아온 것 =>" +callBack);
         RetrofitInterface api = new RetrofitClient().getRetrofit().create(RetrofitInterface.class);
         api.clientPostMethod(mapping,paramMap).enqueue(new Callback<String>() {
             @Override
