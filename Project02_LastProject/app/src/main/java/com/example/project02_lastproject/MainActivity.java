@@ -1,11 +1,15 @@
 package com.example.project02_lastproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 
 import com.example.project02_lastproject.common.CommonConn;
+import com.example.project02_lastproject.customer.CustomerFragment;
 import com.example.project02_lastproject.databinding.ActivityMainBinding;
+
+import me.ibrahimsn.lib.OnItemSelectedListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,22 +20,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_frame, new CustomerFragment()).commit();
 
-        CommonConn.MbjCallback callback = new CommonConn.MbjCallback() {
-            @Override
-            public void onResult(boolean isResult, String data) {
+    binding.bottomBar.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+        FragmentManager manager = getSupportFragmentManager();
+        @Override
+        public boolean onItemSelect(int i) {
+            if(i == 0 ) {
+                manager.beginTransaction().replace(R.id.container_frame, new CustomerFragment()).commit();
+            }else if (i == 1) {
+
+            }else if (i == 2) {
+
+            }else {
 
             }
-        };
-
-
-        binding.btnLogin.setOnClickListener(v -> {
-            CommonConn conn = new CommonConn("login", this);
-            conn.addParamMap("id", binding.edtId.getText().toString());
-            conn.addParamMap("pw", binding.edtPw.getText().toString());
-            conn.onExcute(callback);
-        });
-
+            return true;
+        }
+    });
 
     }
 }
