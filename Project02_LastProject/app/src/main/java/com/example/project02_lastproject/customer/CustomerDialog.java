@@ -24,7 +24,6 @@ public class CustomerDialog extends Dialog {
         if (customerVO == null) {
             btn_submit.setOnClickListener(v -> {
                 CommonConn conn = new CommonConn("insert.cu", context);
-                conn.addParamMap("id", customerVO.getId());
                 conn.addParamMap("name", edt_name.getText().toString());
                 conn.addParamMap("phone", edt_phone.getText().toString());
                 conn.addParamMap("email", edt_email.getText().toString());
@@ -42,7 +41,8 @@ public class CustomerDialog extends Dialog {
             edt_phone.setText(customerVO.getPhone());
             edt_email.setText(customerVO.getEmail());
             btn_submit.setOnClickListener(v -> {
-                CommonConn conn = new CommonConn("insert.cu", context);
+                CommonConn conn = new CommonConn("update.cu", context);
+                conn.addParamMap("id", customerVO.getId());
                 conn.addParamMap("name", edt_name.getText().toString());
                 conn.addParamMap("phone", edt_phone.getText().toString());
                 conn.addParamMap("email", edt_email.getText().toString());
