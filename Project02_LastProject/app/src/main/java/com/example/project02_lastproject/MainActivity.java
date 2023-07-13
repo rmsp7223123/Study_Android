@@ -8,6 +8,7 @@ import android.os.Bundle;
 import com.example.project02_lastproject.common.CommonConn;
 import com.example.project02_lastproject.customer.CustomerFragment;
 import com.example.project02_lastproject.databinding.ActivityMainBinding;
+import com.example.project02_lastproject.hr.HrFragment;
 
 import me.ibrahimsn.lib.OnItemSelectedListener;
 
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             if(i == 0 ) {
                 manager.beginTransaction().replace(R.id.container_frame, new CustomerFragment()).commit();
             }else if (i == 1) {
-
+                manager.beginTransaction().replace(R.id.container_frame, new HrFragment()).commit();
             }else if (i == 2) {
 
             }else {

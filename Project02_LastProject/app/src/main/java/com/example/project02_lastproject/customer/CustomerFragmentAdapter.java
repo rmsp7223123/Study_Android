@@ -47,7 +47,7 @@ public class CustomerFragmentAdapter extends RecyclerView.Adapter<CustomerFragme
             });
         });
         holder.binding.btnUpdate.setOnClickListener(v -> {
-            CustomerDialog dialog = new CustomerDialog(context, list.get(position));
+            CustomerDialog dialog = new CustomerDialog(context, list.get(position)  );
             dialog.show();
         });
     }
