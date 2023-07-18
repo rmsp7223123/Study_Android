@@ -126,41 +126,49 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-//    public void naverLogin(){
-//        binding.btnLoginNaver.setOAuthLogin(new OAuthLoginCallback() {
-//            @Override
-//            public void onSuccess() {
-//                Log.d("네이버", "onSuccess: "+NaverIdLoginSDK.INSTANCE.getAccessToken());
-//                new NidOAuthLogin().callProfileApi(new NidProfileCallback<NidProfileResponse>() {
-//                    @Override
-//                    public void onSuccess(NidProfileResponse res) {
-//                        Log.d("네이버", "onSuccess: "+res.getProfile().getEmail());
-//                        Log.d("네이버", "onSuccess: "+res.getProfile().getNickname());
-//                    }
-//
-//                    @Override
-//                    public void onFailure(int i, @NonNull String s) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onError(int i, @NonNull String s) {
-//
-//                    }
-//                });
-//            }
-//
-//            @Override
-//            public void onFailure(int i, @NonNull String s) {
-//                Log.d("네이버", "onFailure: ");
-//            }
-//
-//            @Override
-//            public void onError(int i, @NonNull String s) {
-//                Log.d("네이버", "onError: ");
-//            }
-//        });
-//    }
+    public void naverLogin(){
+        // 여기 setOAuth 부분 arr 추가하라고 돼 있던데 프로제긑로 바꿔도 라이브러리 폴더가 없던데 어떻게 한건가요? 수업 때
+    //문서에 arr추가하라고나온거말씀하세요? 네
+    //그거는 빌드도구없는애들; 지금 이거 오류나는거 arr때문아니에요?ㄴㄴ dk 아  그리고 그거 뭐냐 잠시만요 zz;;
+        //카카오는 url이 필요가없고
+        //naver는 http://localhost 이렇게만넣음 사업자가없으니, 그 아이피로할거면 192.168.219.100 만 넣으면 되나요?네근 데 어짜피
+        //외부에서는 못쓰니까 똑같음 ㅎㅎ;아 하 감사합니다 넹 화이팅이요
+//        네/ㅂ/빨리나오세요 힘듬 ㅋㅋㅋㅋ
+        // 그 url이랑 네이버 스토어? 인가 뭐 추가하는거 주소 뭐로 하셨나요?
+        binding.btnLoginNaver.setOAuthLogin(new OAuthLoginCallback() {
+            @Override
+            public void onSuccess() {
+                Log.d("네이버", "onSuccess: "+NaverIdLoginSDK.INSTANCE.getAccessToken());
+                new NidOAuthLogin().callProfileApi(new NidProfileCallback<NidProfileResponse>() {
+                    @Override
+                    public void onSuccess(NidProfileResponse res) {
+                        Log.d("네이버", "onSuccess: "+res.getProfile().getEmail());
+                        Log.d("네이버", "onSuccess: "+res.getProfile().getNickname());
+                    }
+
+                    @Override
+                    public void onFailure(int i, @NonNull String s) {
+
+                    }
+
+                    @Override
+                    public void onError(int i, @NonNull String s) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(int i, @NonNull String s) {
+                Log.d("네이버", "onFailure: ");
+            }
+
+            @Override
+            public void onError(int i, @NonNull String s) {
+                Log.d("네이버", "onError: ");
+            }
+        });
+    }
 
 
 
