@@ -49,8 +49,8 @@ public class LoginActivity extends AppCompatActivity {
             login();
         });
 
-        NaverIdLoginSDK.INSTANCE.initialize(this, "", "", getString(R.string.app_name));
-//        naverLogin();
+        NaverIdLoginSDK.INSTANCE.initialize(this, "1hQH17C7HHOtXvellSdX", "4_i1kTt4zM", getString(R.string.app_name));
+        naverLogin();
 
         KakaoSdk.init(this, "faf601ce16c809ff700bf54d00c05061");
         UserApiClient.getInstance().unlink(new Function1<Throwable, Unit>() {
@@ -91,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void kakaoLogin(Context context){
-        KakaoSdk.init(this, "");
+        KakaoSdk.init(this, "faf601ce16c809ff700bf54d00c05061");
         // 카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인(웹뷰)
         // Kotlin은 경우에 따라서 생성자 대신에 메소드로 객체를 return받음. UserApiClient name = new ... x -> UserApiClient.{static UserApiClient.method}
 
@@ -127,14 +127,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void naverLogin(){
-        // 여기 setOAuth 부분 arr 추가하라고 돼 있던데 프로제긑로 바꿔도 라이브러리 폴더가 없던데 어떻게 한건가요? 수업 때
-    //문서에 arr추가하라고나온거말씀하세요? 네
-    //그거는 빌드도구없는애들; 지금 이거 오류나는거 arr때문아니에요?ㄴㄴ dk 아  그리고 그거 뭐냐 잠시만요 zz;;
-        //카카오는 url이 필요가없고
-        //naver는 http://localhost 이렇게만넣음 사업자가없으니, 그 아이피로할거면 192.168.219.100 만 넣으면 되나요?네근 데 어짜피
-        //외부에서는 못쓰니까 똑같음 ㅎㅎ;아 하 감사합니다 넹 화이팅이요
-//        네/ㅂ/빨리나오세요 힘듬 ㅋㅋㅋㅋ
-        // 그 url이랑 네이버 스토어? 인가 뭐 추가하는거 주소 뭐로 하셨나요?
         binding.btnLoginNaver.setOAuthLogin(new OAuthLoginCallback() {
             @Override
             public void onSuccess() {
