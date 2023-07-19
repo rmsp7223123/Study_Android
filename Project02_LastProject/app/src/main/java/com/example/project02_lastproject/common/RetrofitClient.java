@@ -10,4 +10,11 @@ public class RetrofitClient {
                 .addConverterFactory(ScalarsConverterFactory.create()).build();
         return retrofit;
     }
+
+    public Retrofit retrofitLogin(){
+        return new Retrofit.Builder()
+                .baseUrl("http:/localhost/middle/")
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .build();
+    }
 }
