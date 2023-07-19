@@ -2,7 +2,9 @@ package com.example.project02_lastproject.member;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -63,6 +65,8 @@ public class LoginActivity extends AppCompatActivity {
         binding.btnLoginKakao.setOnClickListener(v -> {
             kakaoLogin(this);
         });
+
+        checkPermission();
 
 
     }
@@ -185,5 +189,30 @@ public class LoginActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return null;
+    }
+
+    private final int REQ_PERMISSION = 1000;
+    private void checkPermission(){
+        String[] permissions = {Manifest.permission.CAMERA,
+                Manifest.permission.ACCESS_MEDIA_LOCATION
+        };//카메라 권한을 스트링으로 가져옴.
+        // ContextCompat(액티비티가 아닌 곳), ActivityCompat(액티비티)
+        for(int i=0; i<permissions.length; i++){
+            //내가 모든 권한이 필요하다면 전체 권한을 하나씩 체크해서 허용 안됨이 있는 경우 다시 요청을 하게 만든다.
+            if(ActivityCompat.checkSelfPermission(this, permissions[0])== PackageManager.PERMISSION_DENIED){
+                ActivityCompat.requestPermissions(this, permissions, REQ_PERMISSION);
+            }
+            break;
+        }
+    }
+
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(REQ_PERMISSION==requestCode){
+            Log.d("권한", "onRequestPermissionsResult: 권한 요청 완료");
+        }
     }
 }
