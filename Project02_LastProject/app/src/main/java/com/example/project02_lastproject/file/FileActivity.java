@@ -1,15 +1,21 @@
 package com.example.project02_lastproject.file;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.project02_lastproject.R;
@@ -31,6 +37,8 @@ public class FileActivity extends AppCompatActivity {
     ActivityFileBinding binding;
 
     private final int REQ_GALLERY = 1000;
+
+    ActivityResultLauncher<Intent> launcher; // onCreate에서 초기화 하면 오류 발생
 
 
     @Override
@@ -55,6 +63,7 @@ public class FileActivity extends AppCompatActivity {
                 showGallery();
             }else if(dialog_item[i].equals("카메라")){
                 //카메라 로직
+                showCamera();
             }
             dialog.dismiss();
         });
@@ -116,5 +125,46 @@ public class FileActivity extends AppCompatActivity {
         }
         Log.d("TAG", "getRealPath: 커서"+res);
         return res;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult result) {
+                // 액티비티(카메라)가 종료 되면 콜백으로 데이터를 받는 부분 기존(onActivityResult메소드)가 실행 되었고 현재는 해당 메소드
+                Glide.with(FileActivity.this).load(camera_uri).into(binding.imgv);
+                File file = new File(getRealPath(camera_uri));
+                if(file!= null) {
+                    Toast.makeText(FileActivity.this, "카메라 확인용", Toast.LENGTH_SHORT).show();
+
+                    RequestBody fileBody = RequestBody.create(MediaType.parse("image/jpeg"), file);
+                    MultipartBody.Part filePart = MultipartBody.Part.createFormData("file", "test.jpg", fileBody);
+                    RetrofitInterface api = new RetrofitClient().retrofitLogin().create(RetrofitInterface.class);
+                    api.clientSendFile("file.f", new HashMap<>(), filePart).enqueue(new Callback<String>() {
+                        @Override
+                        public void onResponse(Call<String> call, Response<String> response) {
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<String> call, Throwable t) {
+
+                        }
+                    });
+                }
+
+            }
+        });
+    }
+
+    Uri camera_uri = null; // 사진 uri
+    public void showCamera() {
+        //ContentReseolver(). 앱 --> 컨텐트 리졸버(작업자) ---> 미디어 저장소
+        camera_uri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, new ContentValues());
+        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, camera_uri);
+        launcher.launch(cameraIntent);
     }
 }
